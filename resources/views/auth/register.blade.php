@@ -30,6 +30,8 @@
                                     class="img-fluid registration-image" style="border-radius: 1rem 0 0 1rem;" />
                             </div>
                             <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                @include('alerts.alert-message')
+
                                 <div class="card-body p-4 p-lg-5 text-black">
                                     <form action="{{ route('register.submit') }}" method="POST">
                                         @csrf
@@ -97,10 +99,12 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-outline">
-                                                    <input type="password" id="password_confirmation" name="password_confirmation"
+                                                    <input type="password" id="password_confirmation"
+                                                        name="password_confirmation"
                                                         value="{{ old('password_confirmation') }}"
                                                         class="@error('password_confirmation') is-invalid @enderror mb-3 form-control form-control-lg">
-                                                    <h5 class="form-label" for="password_confirmation">Confirmer le mot de
+                                                    <h5 class="form-label" for="password_confirmation">Confirmer le mot
+                                                        de
                                                         passe</h5>
                                                 </div>
                                                 @error('password_confirmation')

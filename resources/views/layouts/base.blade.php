@@ -5,13 +5,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>@yield('title')</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon_isi.jpg') }}"/>
     <link href="{{ asset('css/constantes.style.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
+    @include('alerts.alert-message')
+
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
         <!-- Sidebar Start -->
@@ -70,19 +72,16 @@
                                     <img src="{{asset('images/profile-user.png') }}" alt="profile-user"
                                     width="35"
                                     height="35" class="rounded-circle" />
-                                    {{-- <span class="ml-1 nav-user-name hidden-sm"> {{ Auth::user()->prenom }}
+                                    <span class="ml-1 nav-user-name hidden-sm m-2"> {{ Auth::user()->prenom }}
                                         {{ Auth::user()->nom }}
                                         <i class="mdi mdi-chevron-down"></i>
-                                    </span> --}}
-                                    <span class="nav-user-name hidden-sm m-2">Mouhamadou Tahir
-                                        Mbaye
-                                        <i class="mdi mdi-chevron-down"></i>
                                     </span>
+                                    
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="./authentication-login.html"
+                                        <a href="{{route('logout')}}"
                                             class="btn btn-outline-primary mx-3 mt-2 d-block">Se déconnecter</a>
                                     </div>
                                 </div>

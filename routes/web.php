@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,11 @@ Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register'])->name('register.submit');
+
+Route::middleware('auth')->group(function () {
+    //logout
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    //dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});

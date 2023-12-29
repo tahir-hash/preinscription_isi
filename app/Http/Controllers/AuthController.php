@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -18,6 +20,18 @@ class AuthController extends Controller
     // Traitement
     public function login(Request $request)
     {
+        $user = User::where('email', $request->email)->first();
+        if ($user) {
+            if (Hash::check($request->password, $user->password)) {
+                Auth::login($user); 
+                return redirect()->route('dashboard'); 
+            } else {
+                return redirect()->route('login')->with('danger', 'Le mot de passe ne correspond pas !');
+            }
+        } else {
+        return redirect()->route('login')->with('danger', 'L\'utilisateur n\'existe pas !');
+        
+        }
     }
 
     //view register
@@ -41,9 +55,19 @@ class AuthController extends Controller
         ]);
 
         $request['password'] = Hash::make($request->password);
-        User::create($request->all());
+        $role_id = Role::where('name', 'ETUDIANT')->firstOrFail()->id;
+        $user= User::create($request->all());
+        $user->roles()->sync($role_id);
 
         // Redirection vers une autre page après l'inscription
         return redirect()->route('login')->with('success', 'Inscription réussie !');
+    }
+
+
+    //logout
+
+    public function logout (Request $request){
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'Vous avez été déconnecté avec succès.');
     }
 }

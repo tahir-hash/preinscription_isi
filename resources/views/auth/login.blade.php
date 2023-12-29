@@ -12,6 +12,7 @@
 </head>
 
 <body class="overflow-hidden">
+    @include('alerts.alert-message')
     <div class="row justify-content-center">
         <div class="col-3 mt-5 text-center">
             <h4 class="semi-circle mx-auto mb-3">BIENVENUE DANS VOTRE PLATEFORME DE PREINSCRIPTION</h4>
@@ -31,8 +32,9 @@
                                 <div class="card-body p-4 p-lg-5 text-black">
 
                                     <form action="{{route('login.submit')}}" method="POST">
+                                        @csrf
                                         <div class="form-outline mb-4">
-                                            <input type="email" id="form2Example17" name="login"
+                                            <input type="email" id="form2Example17" name="email"
                                                 class="mb-3 form-control form-control-lg" />
                                             <h5 class="form-label" for="form2Example17">Login</h5>
                                         </div>
@@ -41,7 +43,6 @@
                                             <input type="password" id="form2Example27" name="password"
                                                 class="mb-3 form-control form-control-lg" />
                                             <h5 class="form-label" for="form2Example27">Password</h5>
-                                            {{-- <a href="{{route('register')}}" class="text-decoration-none m-2 h6">Mot de passe oublié?</a> --}}
                                         </div>
 
                                         <div class="pt-1 mb-4 df">
