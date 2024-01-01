@@ -43,7 +43,41 @@
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                       
+                      {{-- Gestion des departements --}}
+                      <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">Gestion des departements</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-layout-dashboard"></i>
+                            </span>
+                            <span class="hide-menu">Departements</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-layout-dashboard"></i>
+                            </span>
+                            <span class="hide-menu">Filieres</span>
+                        </a>
+                    </li>
+
+                    {{-- Gestion des Preinscriptions --}}
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">Gestion des Preinscriptions</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-layout-dashboard"></i>
+                            </span>
+                            <span class="hide-menu">Preinscriptions</span>
+                        </a>
+                    </li>
                     </ul>    
                 </nav>
                 <!-- End Sidebar navigation -->

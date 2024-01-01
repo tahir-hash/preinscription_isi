@@ -14,7 +14,7 @@ class Niveau extends Model
         'libelle'
     ];
 
-    public function sousNiveau()
+    public function sousNiveaux()
     {
         return $this->hasMany(SousNiveau::class);
     }

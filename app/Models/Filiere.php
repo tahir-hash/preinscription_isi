@@ -12,7 +12,6 @@ class Filiere extends Model
 
     protected $fillable = [
         'libelle',
-        'image',
         'description'
     ];
 
