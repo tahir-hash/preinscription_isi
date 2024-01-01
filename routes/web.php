@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DepartmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,7 @@ Route::middleware('auth')->group(function () {
 
     //dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    //departments
+    Route::resource('departments',DepartmentController::class);
 });

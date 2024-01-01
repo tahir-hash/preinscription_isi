@@ -6,8 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title')</title>
-    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon_isi.jpg') }}"/>
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/favicon_isi.jpg') }}" />
     <link href="{{ asset('css/constantes.style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 
@@ -36,49 +37,49 @@
                             <span class="hide-menu">Home</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
                         </li>
-                      {{-- Gestion des departements --}}
-                      <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Gestion des departements</span>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="./index.html" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-layout-dashboard"></i>
-                            </span>
-                            <span class="hide-menu">Departements</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="./index.html" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-layout-dashboard"></i>
-                            </span>
-                            <span class="hide-menu">Filieres</span>
-                        </a>
-                    </li>
+                        {{-- Gestion des departements --}}
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Gestion des departements</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('departments.index') }}" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Departements</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Filieres</span>
+                            </a>
+                        </li>
 
-                    {{-- Gestion des Preinscriptions --}}
-                    <li class="nav-small-cap">
-                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                        <span class="hide-menu">Gestion des Preinscriptions</span>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="./index.html" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-layout-dashboard"></i>
-                            </span>
-                            <span class="hide-menu">Preinscriptions</span>
-                        </a>
-                    </li>
-                    </ul>    
+                        {{-- Gestion des Preinscriptions --}}
+                        <li class="nav-small-cap">
+                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                            <span class="hide-menu">Gestion des Preinscriptions</span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                                <span>
+                                    <i class="ti ti-layout-dashboard"></i>
+                                </span>
+                                <span class="hide-menu">Preinscriptions</span>
+                            </a>
+                        </li>
+                    </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -101,21 +102,20 @@
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="javascript:void(0)" id="drop2"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{asset('images/profile-user.png') }}" alt="profile-user"
-                                    width="35"
-                                    height="35" class="rounded-circle" />
+                                <a class="nav-link" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="{{ asset('images/profile-user.png') }}" alt="profile-user" width="35"
+                                        height="35" class="rounded-circle" />
                                     <span class="ml-1 nav-user-name hidden-sm m-2"> {{ Auth::user()->prenom }}
                                         {{ Auth::user()->nom }}
                                         <i class="mdi mdi-chevron-down"></i>
                                     </span>
-                                    
+
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
                                     <div class="message-body">
-                                        <a href="{{route('logout')}}"
+                                        <a href="{{ route('logout') }}"
                                             class="btn btn-outline-primary mx-3 mt-2 d-block">Se déconnecter</a>
                                     </div>
                                 </div>
@@ -131,15 +131,15 @@
         </div>
     </div>
 
-    {{-- @section('scripts') --}}
-        <script src="{{ asset('bootstrap/jquery.min.js') }}"></script>
-        <script src="{{ asset('bootstrap/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('js/sidebarmenu.js') }}"></script>
-        <script src="{{ asset('js/app.min.js') }}"></script>
-        <script src="{{ asset('libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('libs/simplebar/dist/simplebar.js') }}"></script>
-        <script src="{{ asset('js/dashboard.js') }}"></script>
-    {{-- @endsection --}}
+    <script src="{{ asset('js/font-awesome.js') }}"></script>
+    <script src="{{ asset('js/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/jquery.min.js') }}"></script>
+    <script src="{{ asset('bootstrap/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/sidebarmenu.js') }}"></script>
+    <script src="{{ asset('js/app.min.js') }}"></script>
+    {{-- <script src="{{ asset('libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+        <script src="{{ asset('libs/simplebar/dist/simplebar.js') }}"></script> --}}
+    <script src="{{ asset('js/dashboard.js') }}"></script>
 
 </body>
 
