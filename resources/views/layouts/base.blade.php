@@ -10,10 +10,10 @@
     <link href="{{ asset('css/constantes.style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    @livewireStyles
 </head>
 
 <body>
-    @include('alerts.alert-message')
 
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
         data-sidebar-position="fixed" data-header-position="fixed">
@@ -58,7 +58,7 @@
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('filieres.index') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
@@ -72,7 +72,7 @@
                             <span class="hide-menu">Gestion des Preinscriptions</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="./index.html" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('preinscriptions.index') }}" aria-expanded="false">
                                 <span>
                                     <i class="ti ti-layout-dashboard"></i>
                                 </span>
@@ -89,7 +89,7 @@
         <!--  Main wrapper -->
         <div class="body-wrapper">
             <!--  Header Start -->
-            <header class="app-header">
+            <header class="app-header border-bottom border-2">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <ul class="navbar-nav">
                         <li class="nav-item d-block d-xl-none">
@@ -126,6 +126,8 @@
             </header>
             <!--  Header End -->
             <div class="container-fluid">
+                @include('alerts.alert-message')
+
                 @yield('content')
             </div>
         </div>
@@ -140,6 +142,19 @@
     {{-- <script src="{{ asset('libs/apexcharts/dist/apexcharts.min.js') }}"></script>
         <script src="{{ asset('libs/simplebar/dist/simplebar.js') }}"></script> --}}
     <script src="{{ asset('js/dashboard.js') }}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.tiny.cloud/1/ni6cn7n7gisj8im0vv7d5cwnmvfahqb63b8kjgq0qiet5ep7/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: '#WYSIWYG', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'code table lists',
+            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+        });
+    </script>
+    @livewireScripts
 
 </body>
 

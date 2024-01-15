@@ -16,6 +16,8 @@ class PreInscription extends Model
         'statut'
     ];
 
+    protected $table =  'preinscriptions';
+    
     public function filiere (){
         return $this->belongsTo(Filiere::class);
     }

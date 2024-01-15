@@ -12,7 +12,9 @@ class Filiere extends Model
 
     protected $fillable = [
         'libelle',
-        'description'
+        'description',
+        'department_id',
+        'niveau_id'
     ];
 
 
@@ -28,5 +30,9 @@ class Filiere extends Model
 
     public function department(){
         return $this->belongsTo(Department::class);
+    }
+
+    public function niveau(){
+        return $this->belongsTo(Niveau::class);
     }
 }
