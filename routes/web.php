@@ -3,10 +3,11 @@
 use App\Livewire\EditDepartment;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DepartmentController;
-use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\PreInscriptionController;
+use App\Http\Controllers\PreInscriptionEtudiantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +46,9 @@ Route::middleware('auth')->group(function () {
 
     //preinscription 
     Route::resource('preinscriptions', PreInscriptionController::class);
+    Route::get('/preinscriptions.etudiant', [PreInscriptionEtudiantController::class, 'indexEtudiant'])->name('preinscriptions.etudiant');
+    Route::get('/preinscription/{id}/filiere', [PreInscriptionEtudiantController::class, 'showFiliere'])->name('preinscriptions.filiere');
+    Route::get('/preinscription/{id}/candidat', [PreInscriptionEtudiantController::class, 'showCandidatForm'])->name('preinscriptions.candidat');
+    Route::post('/preinscription-candidat', [PreInscriptionEtudiantController::class, 'storeCandidate'])->name('candidater');
 
 });

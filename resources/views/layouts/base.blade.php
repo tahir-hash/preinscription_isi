@@ -32,53 +32,72 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
                     <ul id="sidebarnav">
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">Home</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-layout-dashboard"></i>
-                                </span>
-                                <span class="hide-menu">Dashboard</span>
-                            </a>
-                        </li>
-                        {{-- Gestion des departements --}}
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">Gestion des departements</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ route('departments.index') }}" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-layout-dashboard"></i>
-                                </span>
-                                <span class="hide-menu">Departements</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ route('filieres.index') }}" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-layout-dashboard"></i>
-                                </span>
-                                <span class="hide-menu">Filieres</span>
-                            </a>
-                        </li>
+                        @can('admin')
+                            <li class="nav-small-cap">
+                                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                                <span class="hide-menu">Home</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Dashboard</span>
+                                </a>
+                            </li>
+                            {{-- Gestion des departements --}}
+                            <li class="nav-small-cap">
+                                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                                <span class="hide-menu">Gestion des departements</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('departments.index') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Departements</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('filieres.index') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Filieres</span>
+                                </a>
+                            </li>
 
-                        {{-- Gestion des Preinscriptions --}}
-                        <li class="nav-small-cap">
-                            <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                            <span class="hide-menu">Gestion des Preinscriptions</span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ route('preinscriptions.index') }}" aria-expanded="false">
-                                <span>
-                                    <i class="ti ti-layout-dashboard"></i>
-                                </span>
-                                <span class="hide-menu">Preinscriptions</span>
-                            </a>
-                        </li>
+                            {{-- Gestion des Preinscriptions --}}
+                            <li class="nav-small-cap">
+                                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                                <span class="hide-menu">Gestion des Preinscriptions</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('preinscriptions.index') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Preinscriptions</span>
+                                </a>
+                            </li>
+                        @endcan
+
+                        @can('etudiant')
+                            {{-- Gestion des Preinscriptions --}}
+                            <li class="nav-small-cap">
+                                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                                <span class="hide-menu">Gestion des Preinscriptions</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('preinscriptions.etudiant') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Preinscriptions</span>
+                                </a>
+                            </li>
+                        @endcan
+
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

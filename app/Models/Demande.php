@@ -12,8 +12,11 @@ class Demande extends Model
 
     protected $fillable = [
         'statut',
+        'filiere_id',
+        'user_id',
+        'sous_niveau_id',
         'documents',
-        "documents_name"
+        'documents_title'
     ];
 
     public function user()

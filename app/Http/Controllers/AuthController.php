@@ -27,14 +27,20 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
-                Auth::login($user); 
-                return redirect()->route('dashboard'); 
+                Auth::login($user);
+                //verifier si admin
+                if ($this->isAdmin()) {
+                    return redirect()->route('dashboard');
+                }
+                //verifier si etudiant
+                if ($this->IsEtudiant()) {
+                    return redirect()->route('preinscriptions.etudiant');
+                }
             } else {
                 return redirect()->route('login')->with('danger', 'Le mot de passe ne correspond pas !');
             }
         } else {
-        return redirect()->route('login')->with('danger', 'L\'utilisateur n\'existe pas !');
-        
+            return redirect()->route('login')->with('danger', 'L\'utilisateur n\'existe pas !');
         }
     }
 
@@ -44,7 +50,7 @@ class AuthController extends Controller
         if (Auth::check()) {
             return redirect()->route('dashboard');
         }
-        
+
         return view('auth.register');
     }
 
@@ -64,7 +70,7 @@ class AuthController extends Controller
 
         $request['password'] = Hash::make($request->password);
         $role_id = Role::where('name', 'ETUDIANT')->firstOrFail()->id;
-        $user= User::create($request->all());
+        $user = User::create($request->all());
         $user->roles()->sync($role_id);
 
         // Redirection vers une autre page après l'inscription
@@ -74,7 +80,8 @@ class AuthController extends Controller
 
     //logout
 
-    public function logout (Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         return redirect()->route('login')->with('success', 'Vous avez été déconnecté avec succès.');
     }
