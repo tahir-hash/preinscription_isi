@@ -106,14 +106,14 @@
                             </li>
 
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="{{ route('demandes.index.invalide') }}" aria-expanded="false">
+                                <a class="sidebar-link" href="{{ route('demandes.index.invalide') }}"
+                                    aria-expanded="false">
                                     <span>
                                         <i class="ti ti-layout-dashboard"></i>
                                     </span>
                                     <span class="hide-menu">Demandes Invalidées</span>
                                 </a>
                             </li>
-
                         @endcan
 
                         @can('etudiant')
@@ -123,7 +123,8 @@
                                 <span class="hide-menu">Gestion des Preinscriptions</span>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="{{ route('preinscriptions.etudiant') }}" aria-expanded="false">
+                                <a class="sidebar-link" href="{{ route('preinscriptions.etudiant') }}"
+                                    aria-expanded="false">
                                     <span>
                                         <i class="ti ti-layout-dashboard"></i>
                                     </span>
@@ -155,10 +156,10 @@
                     <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
                         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img src="{{ asset('images/profile-user.png') }}" alt="profile-user" width="35"
-                                        height="35" class="rounded-circle" />
+                                <a class="nav-link" href="javascript:void(0)" id="drop2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{ asset('images/profile-user.png') }}" alt="profile-user"
+                                        width="35" height="35" class="rounded-circle" />
                                     <span class="ml-1 nav-user-name hidden-sm m-2"> {{ Auth::user()->prenom }}
                                         {{ Auth::user()->nom }}
                                         <i class="mdi mdi-chevron-down"></i>
@@ -192,8 +193,8 @@
     <script src="{{ asset('bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('js/app.min.js') }}"></script>
-    {{-- <script src="{{ asset('libs/apexcharts/dist/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('libs/simplebar/dist/simplebar.js') }}"></script> --}}
+    <script src="{{ asset('libs/apexcharts/dist/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
