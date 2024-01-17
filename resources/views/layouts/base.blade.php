@@ -131,6 +131,21 @@
                                     <span class="hide-menu">Preinscriptions</span>
                                 </a>
                             </li>
+
+                            {{-- Gestion des feedbacks --}}
+                            <li class="nav-small-cap">
+                                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                                <span class="hide-menu">Gestion des feedbacks</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('feedback.index') }}"
+                                    aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Feedbacks</span>
+                                </a>
+                            </li>
                         @endcan
 
                     </ul>
