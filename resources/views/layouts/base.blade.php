@@ -80,6 +80,40 @@
                                     <span class="hide-menu">Preinscriptions</span>
                                 </a>
                             </li>
+
+                            {{-- Gestion des demandes --}}
+
+                            <li class="nav-small-cap">
+                                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                                <span class="hide-menu">Gestion des demandes</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('demandes.index') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Demandes en cours</span>
+                                </a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('demandes.index.valide') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Demandes Validées</span>
+                                </a>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('demandes.index.invalide') }}" aria-expanded="false">
+                                    <span>
+                                        <i class="ti ti-layout-dashboard"></i>
+                                    </span>
+                                    <span class="hide-menu">Demandes Invalidées</span>
+                                </a>
+                            </li>
+
                         @endcan
 
                         @can('etudiant')

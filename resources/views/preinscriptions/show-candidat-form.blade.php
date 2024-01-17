@@ -31,7 +31,7 @@
                 <!-- Champs de type fichier stylés -->
                 <div class="mb-3">
                     <label for="cni" class="form-label">CNI</label>
-                    <input type="file" class="form-control" id="cni" name="cni">
+                    <input accept=".pdf" type="file" class="form-control" id="cni" name="cni">
                     @error('cni')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
@@ -39,7 +39,7 @@
 
                 <div class="mb-3">
                     <label for="domicile" class="form-label">Certificat de domicile</label>
-                    <input type="file" class="form-control" id="domicile" name="domicile">
+                    <input accept=".pdf" type="file" class="form-control" id="domicile" name="domicile">
                     @error('domicile')
                         <div class="text-danger">{{ $message }}</div>
                     @enderror

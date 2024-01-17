@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FiliereController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\PreInscriptionController;
 use App\Http\Controllers\PreInscriptionEtudiantController;
@@ -50,5 +51,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/preinscription/{id}/filiere', [PreInscriptionEtudiantController::class, 'showFiliere'])->name('preinscriptions.filiere');
     Route::get('/preinscription/{id}/candidat', [PreInscriptionEtudiantController::class, 'showCandidatForm'])->name('preinscriptions.candidat');
     Route::post('/preinscription-candidat', [PreInscriptionEtudiantController::class, 'storeCandidate'])->name('candidater');
+
+    //demandes
+    Route::resource('demandes', DemandeController::class);
+    Route::get('/demande/{id}/{type}/validation', [DemandeController::class, 'validation'])->name('demande.validation');
+    Route::get('/demandes.valide', [DemandeController::class, 'indexValide'])->name('demandes.index.valide');
+    Route::get('/demandes.invalide', [DemandeController::class, 'indexInvalide'])->name('demandes.index.invalide');
+    Route::get('/demande/{id}/download', [DemandeController::class, 'download'])->name('demande.download');
+
+
 
 });
